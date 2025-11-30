@@ -3,8 +3,10 @@ import { defineConfig } from 'vitest/config';
 import { playwright } from '@vitest/browser-playwright';
 import { sveltekit } from '@sveltejs/kit/vite';
 
+import devtoolsJson from 'vite-plugin-devtools-json';
+
 export default defineConfig({
-	plugins: [tailwindcss(), sveltekit()],
+	plugins: [tailwindcss(), sveltekit(), devtoolsJson(),],
 	test: {
 		expect: { requireAssertions: true },
 		projects: [

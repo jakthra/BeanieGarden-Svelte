@@ -8,3 +8,11 @@
 @import '@skeletonlabs/skeleton/themes/nouveau';
 
 @custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+
+h1 {
+    font-family: 'Noto Sans Mono', monospace;
+}
+
+.text-mono {
+    font-family: 'Noto Sans Mono', monospace;
+}

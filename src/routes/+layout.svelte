@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { onMount } from 'svelte';
+	import '@fontsource/noto-sans-mono';
 
 	onMount(() => {
 		if ('serviceWorker' in navigator) {
