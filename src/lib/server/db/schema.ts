@@ -1,11 +1,15 @@
-import { pgTable, serial, integer, uuid, varchar, boolean, timestamp, index } from 'drizzle-orm/pg-core';
+import { pgTable, serial, integer, uuid, varchar, boolean, timestamp, index, pgEnum } from 'drizzle-orm/pg-core';
+
+export const userRole = pgEnum('role', ['admin', 'user'])
 
 export const user = pgTable('user', {
 	uid: uuid('uid').primaryKey().defaultRandom(),
+	name: varchar('name').notNull(),
 	email: varchar("email").notNull().unique(),
 	active: boolean().default(true),
 	created_at: timestamp().defaultNow(),
-	pw_hash: varchar("pw_hash")
+	pw_hash: varchar("pw_hash").notNull(),
+	role: userRole(),
 }, (table) => [
 	index("user_uid_idx").on(table.uid),
 	index("user_email_idx").on(table.email)

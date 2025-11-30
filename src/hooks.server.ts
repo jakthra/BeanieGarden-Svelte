@@ -1,4 +1,5 @@
 import { getUserFromSession } from '$lib/server/db/queries';
+import { redirect } from '@sveltejs/kit';
 
 // src/hooks.server.js
 export async function handle({ event, resolve }) {

@@ -66,7 +66,9 @@ async function addAdmin() {
       uid,
       email,
       pw_hash: pwHash,
-      active: true
+      active: true,
+      role: "admin",
+      name: "Jakob Thrane"
     });
 
     console.log(`✓ Admin user created successfully`);

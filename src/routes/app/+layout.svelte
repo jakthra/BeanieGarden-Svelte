@@ -18,18 +18,23 @@
 		return () => document.removeEventListener('keydown', handleEscape);
 	});
 
-	import { SearchIcon, ListTodoIcon, FenceIcon } from '@lucide/svelte';
+	import { SearchIcon, ListTodoIcon, FenceIcon, Settings2, CircleUserRound } from '@lucide/svelte';
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 
 	const links = [
-		{ label: 'Tasks', href: '/tasks', icon: ListTodoIcon },
-		{ label: 'Garden', href: '/garden', icon: FenceIcon },
+		{ label: 'Tasks', href: '/app/tasks', icon: ListTodoIcon },
+		{ label: 'Garden', href: '/app/garden', icon: FenceIcon },
 		{
 			label: 'Search',
 			href: '#search',
 			icon: SearchIcon,
 			onclick: () => (searchOpen = !searchOpen),
 			active: () => searchOpen
+		},
+		{
+			label: 'Settings',
+			href: '/app/settings',
+			icon: CircleUserRound
 		}
 	];
 	let anchorBar = 'btn hover:preset-tonal flex-col items-center gap-1';
@@ -58,7 +63,7 @@
 			{@render children()}
 		</div>
 		<Navigation layout="bar" class="z-50">
-			<Navigation.Menu class="grid grid-cols-3 gap-2">
+			<Navigation.Menu class="grid grid-cols-4 gap-2">
 				{#each links as link (link)}
 					{@const Icon = link.icon}
 					{#if link.onclick}
