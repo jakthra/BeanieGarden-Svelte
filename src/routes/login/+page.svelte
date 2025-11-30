@@ -1,12 +1,5 @@
 <script lang="ts">
-	import {
-		AlertTriangle,
-		AlertTriangleIcon,
-		ArrowRightIcon,
-		AtSignIcon,
-		EyeOffIcon,
-		TriangleAlert
-	} from '@lucide/svelte';
+	import { ArrowRightIcon, AtSignIcon, EyeOffIcon, TriangleAlert } from '@lucide/svelte';
 	import type { ActionData } from './$types';
 
 	export let form: ActionData;
