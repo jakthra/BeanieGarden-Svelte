@@ -1,5 +1,5 @@
 import { findUserByEmail, createSession } from '$lib/server/db/queries';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import { saltAndHashPassword } from '../../utils';
 import type { Actions } from './$types';
 import bcrypt from 'bcryptjs';
@@ -31,6 +31,7 @@ export const actions = {
         const session = await createSession(user.uid);
         cookies.set('sessionuid', session.uid, { path: '/', expires: session.expires_at });
 
-        return { success: true };
+        throw redirect(303, '/');
+
     },
 } satisfies Actions;
